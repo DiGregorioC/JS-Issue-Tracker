@@ -1,4 +1,5 @@
 document.getElementById('issueInputForm').addEventListener('submit', saveIssue)
+
 function saveIssue(event) {
     let issueDesc = document.getElementById('issueDescriptionInput').value
     let issueSeverity = document.getElementById('issueSeverityInput').value
@@ -22,6 +23,12 @@ if (localStorage.getItem('issues') === null) {
     issues.push(issue)
     localStorage.setItem('issues', JSON.stringify(issues))
     }
+
+    document.getElementById('issueInputForm').reset()
+
+    fetchIssues()
+
+    event.preventDefault()
 }
 
 function fetchIssues() {
