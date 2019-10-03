@@ -13,6 +13,15 @@ function saveIssue(event) {
         assignedTo: issueAssignedTo,
         status = issueStatus
     }
+if (localStorage.getItem('issues') === null) {
+    let issues = []
+    issues.push(issue)
+    localStorage.setItem('issues', JSON.stringify(issues))
+} else {
+    let issues = JSON.parse(localStorage.getItem('issues'))
+    issues.push(issue)
+    localStorage.setItem('issues', JSON.stringify(issues))
+    }
 }
 
 function fetchIssues() {
