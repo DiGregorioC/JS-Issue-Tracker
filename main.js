@@ -1,3 +1,20 @@
+document.getElementById('issueInputForm').addEventListener('submit', saveIssue)
+function saveIssue(event) {
+    let issueDesc = document.getElementById('issueDescriptionInput').value
+    let issueSeverity = document.getElementById('issueSeverityInput').value
+    let issueAssignedTo = document.getElementById('issueAssignedToInput').value
+    let issueId = chance.guid()
+    let issueStatus = "Open"
+
+    let issue = {
+        id: issueId,
+        description: issueDesc,
+        severity: issueSeverity,
+        assignedTo: issueAssignedTo,
+        status = issueStatus
+    }
+}
+
 function fetchIssues() {
     let issues = JSON.parse(localStorage.getItem('issues'))
     let issuesList = document.getElementById('issuesList')
